@@ -25,4 +25,4 @@ def draw():
          prayy.movebitch(pred)
           
 if __name__ == '__main__':
-    run()
+    run(frame_rate=10)
