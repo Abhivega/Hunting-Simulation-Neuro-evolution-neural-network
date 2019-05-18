@@ -28,8 +28,7 @@ class Bird():
         self.velocity.limit(self.top_speed)
         self.position+=self.velocity
         self.acceleration=Vector.from_angle(rn.uniform(-np.pi,np.pi))
-
-        
+    
     def checkobs(self):
         if self.position.y  > 500 :
             self.velocity.y =- self.velocity.y
