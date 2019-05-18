@@ -1,5 +1,5 @@
-from tala import Bird
-from pray import Predator
+from Hunded import Bird
+from Hunter import Predator
 from p5 import *
 bird=[Bird() for i in range(15)]
 pred=[Predator() for i in range(2)]
