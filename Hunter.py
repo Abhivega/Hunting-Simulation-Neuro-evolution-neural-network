@@ -53,7 +53,7 @@ class Predator(object):
             
     def movebitch(self,ppray):
         for pray in ppray: 
-             run =remap(self.kill,(0,15),(8,16))
+             run =remap(self.kill,(0,10),(8,16))
              self.top_speed= run
 
 
@@ -76,8 +76,8 @@ class Predator(object):
                   acceleration.normalize()
                   self.acceleration = acceleration*m
                   
-         if kmin < 15 :
-                   bird.pop()
+         elif kmin < 15 :
+                   bird.pop(i)
                    self.headcount()
 #        return self.acceleration
     def headcount(self):

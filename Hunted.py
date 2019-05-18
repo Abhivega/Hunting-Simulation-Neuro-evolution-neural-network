@@ -56,13 +56,13 @@ class Bird():
         for pray in Pray: 
              k=dist(self.position,pray.position)
              if k < 80:
-                  m=remap(k,(80,0),(1,6))
+                  m=remap(k,(80,0),(1,8))
                   
                   diff = -(pray.position - self.position) 
                   acceleration= diff + self.velocity
                   acceleration.normalize()
-                  self.acceleration=acceleration
-                  self.acceleration*=m
+                  self.acceleration=acceleration*m
+
 
     def run(self,pray):
          
