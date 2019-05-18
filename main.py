@@ -1,4 +1,4 @@
-from Hunded import Bird
+from Hunted import Bird
 from Hunter import Predator
 from p5 import *
 bird=[Bird() for i in range(15)]
