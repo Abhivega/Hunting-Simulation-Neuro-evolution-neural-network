@@ -1,7 +1,7 @@
 from Hunted import Bird
 from Hunter import Predator
 from p5 import *
-bird=[Bird() for i in range(15)]
+bird=[Bird() for i in range(200)]
 pred=[Predator() for i in range(2)]
 
 def setup():
