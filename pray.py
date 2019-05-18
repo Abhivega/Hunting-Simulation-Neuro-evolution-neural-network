@@ -1,7 +1,7 @@
 from p5 import *
 import random as rn
 
-class Pray(object):
+class Predator(object):
     
     def __init__(self):
         # our object has two Vectors: location and velocity
