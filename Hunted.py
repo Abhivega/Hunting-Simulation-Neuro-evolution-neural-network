@@ -9,7 +9,7 @@ class Bird():
         self.velocity = Vector(random_uniform(low=-4, high=4),
                                random_uniform(low=-4, high=4))
         self.acceleration=Vector(0,0)
-        self.top_speed=8
+        self.top_speed=10
         self.goal=Vector(600,100)
         self.chase=False
         
@@ -56,7 +56,7 @@ class Bird():
         for pray in Pray: 
              k=dist(self.position,pray.position)
              if k < 80:
-                  m=remap(k,(80,0),(1,8))
+                  m=remap(k,(80,0),(1,12))
                   
                   diff = -(pray.position - self.position) 
                   acceleration= diff + self.velocity

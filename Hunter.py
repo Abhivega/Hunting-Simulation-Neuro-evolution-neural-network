@@ -23,8 +23,8 @@ class Predator(object):
 
     def show(self):
         stroke(0)
-        x=remap(self.kill,(0,15),(0,255))
-        y=remap(self.kill,(0,15),(255,0))
+        x=remap(self.kill,(0,7),(0,255))
+        y=remap(self.kill,(0,7),(255,0))
         fill(x,y,0)
         circle(self.position, 15)
     
@@ -53,7 +53,7 @@ class Predator(object):
             
     def movebitch(self,ppray):
         for pray in ppray: 
-             run =remap(self.kill,(0,10),(8,16))
+             run =remap(self.kill,(0,10),(6,14))
              self.top_speed= run
 
 
@@ -68,8 +68,8 @@ class Predator(object):
              k.append(dist(self.position,bir.position))
          kmin=int(min(k))
          i=k.index(min(k))
-         if kmin < 250 and kmin > 15:
-                  m=remap(kmin,(15,250),(5,10))
+         if kmin < 200 and kmin > 15:
+                  m=remap(kmin,(15,200),(5,10))
                   bird[i].chase = True
                   diff =  bird[i].position - self.position 
                   acceleration= diff + self.velocity
@@ -89,7 +89,6 @@ class Predator(object):
          self.update()
          self.hund(bird)
          self.checkobs()
-         
          self.show() 
 
          
