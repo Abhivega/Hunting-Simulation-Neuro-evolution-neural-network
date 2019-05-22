@@ -30,9 +30,9 @@ class Bird():
         self.acceleration=Vector.from_angle(rn.uniform(-np.pi,np.pi))
     
     def checkobs(self):
-        if self.position.y  > 500 :
+        if self.position.y  > 650 :
             self.velocity.y =- self.velocity.y
-            self.position=Vector(self.position.x,500)
+            self.position=Vector(self.position.x,650)
             self.acceleration= Vector(0,0)
             
         elif self.position.y < 20 :
@@ -40,9 +40,9 @@ class Bird():
              self.position=Vector(self.position.x,20)
              self.acceleration= Vector(0,0)
              
-        elif (self.position.x > 700) :
+        elif (self.position.x > 1250) :
              self.velocity.x =- self.velocity.x
-             self.position=Vector(700, self.position.y)
+             self.position=Vector(1250, self.position.y)
              self.acceleration= Vector(0,0)
              
              
@@ -55,8 +55,8 @@ class Bird():
     def flee(self,Pray):
         for pray in Pray: 
              k=dist(self.position,pray.position)
-             if k < 80:
-                  m=remap(k,(80,0),(1,12))
+             if k < 100:
+                  m=remap(k,(0,100),(5,25))
                   
                   diff = -(pray.position - self.position) 
                   acceleration= diff + self.velocity

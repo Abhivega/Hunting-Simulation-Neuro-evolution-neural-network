@@ -5,7 +5,7 @@ class Predator(object):
     
     def __init__(self):
         # our object has two Vectors: location and velocity
-        self.position = Vector(rn.randint(0,700),
+        self.position = Vector(rn.randint(0,680),
                                rn.randint(0,500))
 
         self.velocity = Vector(random_uniform(low=-2, high=2),
@@ -30,9 +30,9 @@ class Predator(object):
     
 
     def checkobs(self):
-        if self.position.y  > 500 :
+        if self.position.y  > 650 :
             self.velocity.y =- self.velocity.y
-            self.position=Vector(self.position.x,500)
+            self.position=Vector(self.position.x,650)
             self.acceleration= Vector(0,0)
             
         elif self.position.y < 20 :
@@ -40,9 +40,9 @@ class Predator(object):
              self.position=Vector(self.position.x,20)
              self.acceleration= Vector(0,0)
              
-        elif (self.position.x > 700) :
+        elif (self.position.x > 1250) :
              self.velocity.x =- self.velocity.x
-             self.position=Vector(700, self.position.y)
+             self.position=Vector(1250, self.position.y)
              self.acceleration= Vector(0,0)
              
              
@@ -53,7 +53,7 @@ class Predator(object):
             
     def movebitch(self,ppray):
         for pray in ppray: 
-             run =remap(self.kill,(0,10),(6,14))
+             run =remap(self.kill,(0,10),(8,14))
              self.top_speed= run
 
 
@@ -68,8 +68,8 @@ class Predator(object):
              k.append(dist(self.position,bir.position))
          kmin=int(min(k))
          i=k.index(min(k))
-         if kmin < 200 and kmin > 15:
-                  m=remap(kmin,(15,200),(5,10))
+         if kmin < 300 and kmin > 15:
+                  m=remap(kmin,(300,15),(2,10))
                   bird[i].chase = True
                   diff =  bird[i].position - self.position 
                   acceleration= diff + self.velocity
