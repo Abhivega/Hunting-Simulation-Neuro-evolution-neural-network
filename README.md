@@ -3,8 +3,9 @@ Simulation of a hunting using p5 and python using boids. The original inspiratio
 
 ##Changes
 
-Changes in gain speed function, incorportaing it into headcount() in Hunter.
-time now resets after each kill, thus optimising score function.
+undoing changes of last commit. The time reset was not an optimal operation 
+consistant speed enables better convergence of weights.
+Its better to use recombination rather than mutation - working on it.
 
 
 ## contributing

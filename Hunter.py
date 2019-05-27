@@ -87,6 +87,7 @@ class Predator():
         for i, bir in enumerate(bird):
             #            bir.chase=False
             k.append(dist(self.position, bir.position))
+
         kmin = int(min(k))
         i = k.index(min(k))
         if kmin < 500 and kmin > 15:
@@ -128,9 +129,9 @@ class Predator():
     def headcount(self):
         self.kill += 1
         self.boundy += self.kill/self.tim
-        self.tim = 0
-        run = remap(self.kill, (0, 10), (8, 14))
-        self.top_speed = run
+#        self.tim = 0
+    #    run = remap(self.kill, (0, 10), (8, 14))
+    #    self.top_speed = run
         return (self.kill)
 
     def run(self, bird):
