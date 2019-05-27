@@ -37,6 +37,7 @@ class Predator():
             self.top_speed = 6
             self.kill = 0
             self.boundy=0
+            self.tim = 0
 
     
     def update(self):
@@ -119,14 +120,17 @@ class Predator():
         return self.score
 
         
-    def time(self,t):
-        self.tim = t
+    def time(self):
+        self.tim += 1 
 
 
 
     def headcount(self):
         self.kill += 1
         self.boundy += self.kill/self.tim
+        self.tim = 0
+        run = remap(self.kill, (0, 10), (8, 14))
+        self.top_speed = run
         return (self.kill)
 
     def run(self, bird):

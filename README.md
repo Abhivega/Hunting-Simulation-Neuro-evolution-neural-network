@@ -3,7 +3,9 @@ Simulation of a hunting using p5 and python using boids. The original inspiratio
 
 ##Changes
 
-included primitive scoring mechanism based upon the number of captured food with respect to time. 
+Changes in gain speed function, incorportaing it into headcount() in Hunter.
+time now resets after each kill, thus optimising score function.
+
 
 ## contributing
 

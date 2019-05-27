@@ -57,8 +57,8 @@ def draw():
             bir.run(pred)
         for pre in pred:
             pre.run(bird)
-            pre.time(z)
-            pre.movebitch(pred)
+            pre.time()
+    #        pre.movebitch(pred)
     else:
         z=0
         bird = [Bird() for i in range(2)]
