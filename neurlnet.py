@@ -49,17 +49,17 @@ class Neuralnet(object):
     def mutate(self):
         for i in range(3):
             for j in range(10):
-                if np.random.rand() < 0.1:
+                if np.random.rand() < 0.05:
                     self.w1[i,j]=np.random.uniform(low=-1,high=1)
 
         for i in range(10):
             for j in range(10):
-                if np.random.rand() < 0.1:
+                if np.random.rand() < 0.05:
                     self.w2[i, j] = np.random.uniform(low=-1, high=1)
                     
         for i in range(10):
             for j in range(2):
-                if np.random.rand() < 0.1:
+                if np.random.rand() < 0.05:
                     self.w3[i, j] = np.random.uniform(low=-1, high=1)
 
 

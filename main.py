@@ -37,12 +37,10 @@ def baby(pred):
         for pre in pred:
             a.append(pre.rank())
         minim = min(a)
-        print(a)
         i = a.index(min(a))
         one=deepcopy(pred[i])
         one.forone()
         net = deepcopy(pred[i].net)
-        print(i)
         pred = [Predator(net) for i in range(4)]
         pred.append(one)
         return pred
