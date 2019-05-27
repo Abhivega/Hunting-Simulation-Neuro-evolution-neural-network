@@ -16,8 +16,7 @@ class Predator():
         self.tim=0
         self.boundy=0
         self.position = Vector(0,0)
-      #  self.position = Vector(rn.randint(0, 680),
-      #                         rn.randint(0, 500))
+        self.position = Vector(rn.randint(0, 1200), rn.randint(0,620))
         self.velocity = Vector(30, 30)
       #  self.velocity = Vector(random_uniform(low=-2, high=2),
       #                         random_uniform(low=-2, high=2))
