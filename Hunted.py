@@ -5,8 +5,8 @@ import numpy as np
 
 class Bird():
     def __init__(self):
-        self.position = Vector(rn.randint(0, 700),
-                               300)
+        self.position = Vector(rn.randint(0, 1200),
+                               rn.randint(0, 600))
 
         self.velocity = Vector(0, 0)
         self.acceleration = Vector(0, 0)

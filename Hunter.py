@@ -22,6 +22,18 @@ class Predator():
         self.top_speed = 6
         self.kill = 0
 
+    def forone(self):
+            self.mini = 500
+            self.position = Vector(0,0)
+        #  self.position = Vector(rn.randint(0, 680),
+        #                         rn.randint(0, 500))
+            self.velocity = Vector(30, 30)
+        #  self.velocity = Vector(random_uniform(low=-2, high=2),
+        #                         random_uniform(low=-2, high=2))
+            self.acceleration = Vector(0, 0)
+            self.top_speed = 6
+            self.kill = 0
+    
     def update(self):
 
         self.velocity.limit(self.top_speed)
@@ -86,6 +98,8 @@ class Predator():
 
         elif kmin < 15:
             bird.pop(i)
+            kmin=5
+            self.ismin(kmin)
             self.headcount()
 
     def ismin(self,diff):
