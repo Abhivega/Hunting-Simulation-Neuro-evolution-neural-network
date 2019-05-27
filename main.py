@@ -31,8 +31,9 @@ def baby(pred):
         a = []
 
         for pre in pred:
-            a.append(pre.mini)
+            a.append(pre.rank())
         minim = min(a)
+        print(a)
         i = a.index(min(a))
         one=deepcopy(pred[i])
         one.forone()
@@ -56,6 +57,7 @@ def draw():
             bir.run(pred)
         for pre in pred:
             pre.run(bird)
+            pre.time(z)
             pre.movebitch(pred)
     else:
         z=0

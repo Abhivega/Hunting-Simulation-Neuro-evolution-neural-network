@@ -12,6 +12,9 @@ class Predator():
         self.net=deepcopy(netw) 
         self.net.mutate()
         self.mini = 500
+        self.score = 0
+        self.tim=0
+        self.boundy=0
         self.position = Vector(0,0)
       #  self.position = Vector(rn.randint(0, 680),
       #                         rn.randint(0, 500))
@@ -23,7 +26,7 @@ class Predator():
         self.kill = 0
 
     def forone(self):
-            self.mini = 500
+            self.mini = 600
             self.position = Vector(0,0)
         #  self.position = Vector(rn.randint(0, 680),
         #                         rn.randint(0, 500))
@@ -33,6 +36,8 @@ class Predator():
             self.acceleration = Vector(0, 0)
             self.top_speed = 6
             self.kill = 0
+            self.boundy=0
+
     
     def update(self):
 
@@ -93,25 +98,35 @@ class Predator():
             y = self.net.compute([kmin/500, diff[0], diff[1]])[1]
         #    print(kmin/500, x, y)
             self.acceleration=Vector(x,y)
- #           print(self.acceleration)
+ #           print(selfself..acceleration)
             self.ismin(kmin)
 
         elif kmin < 15:
             bird.pop(i)
-            kmin=5
-            self.ismin(kmin)
             self.headcount()
 
-    def ismin(self,diff):
-        if diff < self.mini:
-            self.mini = diff
-        return(self.mini)   
+    def ismin(self,kmin):
+        if kmin < self.mini:
+            self.mini = kmin
 
+
+
+    def rank(self):
+        if self.kill == 0: 
+            self.score = self.mini
+        else:
+            self.score = 15 - (100 *self.boundy)
+        return self.score
+
+        
+    def time(self,t):
+        self.tim = t
 
 
 
     def headcount(self):
         self.kill += 1
+        self.boundy += self.kill/self.tim
         return (self.kill)
 
     def run(self, bird):

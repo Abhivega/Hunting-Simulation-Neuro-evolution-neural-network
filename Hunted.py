@@ -5,13 +5,12 @@ import numpy as np
 
 class Bird():
     def __init__(self):
-        self.position = Vector(rn.randint(0, 1200),
-                               rn.randint(0, 600))
+        self.position = Vector(rn.randint(0, 1100),
+                               rn.randint(0, 550))
 
         self.velocity = Vector(0, 0)
         self.acceleration = Vector(0, 0)
         self.top_speed = 10
-        self.goal = Vector(600, 100)
         self.chase = False
 
     def show1(self):
@@ -65,7 +64,7 @@ class Bird():
     def run(self, pray):
 
 #        self.flee(pray)
-        self.checkobs()
+#        self.checkobs()
 #        self.update()
         if self.chase:
             self.show1()
