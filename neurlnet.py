@@ -35,7 +35,7 @@ class Neuralnet(object):
             for j in range(len(self.layer1)):
                 temp += np.multiply(self.layer1[j], self.w2[j, i])
             #temp+=self.b1[0]
-            self.layer2[i] = self.sigmoid(temp)
+            self.layer2[i] = temp
 
         for i in range(len(self.out)):
             temp = 0
@@ -50,17 +50,17 @@ class Neuralnet(object):
         print('mutated')
         for i in range(3):
             for j in range(10):
-                if np.random.rand() < 0.1:
+                if np.random.rand() < 0.8:
                     self.w1[i,j]=np.random.uniform(low=-1,high=1)
 
         for i in range(10):
             for j in range(10):
-                if np.random.rand() < 0.1:
+                if np.random.rand() < 0.8:
                     self.w2[i, j] = np.random.uniform(low=-1, high=1)
                     
         for i in range(10):
             for j in range(2):
-                if np.random.rand() < 0.1:
+                if np.random.rand() < 0.8:
                     self.w3[i, j] = np.random.uniform(low=-1, high=1)
 
 

@@ -1,7 +1,6 @@
 from p5 import *
 import random as rn
 from neurlnet import Neuralnet
-net=Neuralnet()
 global mini
 mini = 500
 
@@ -9,7 +8,9 @@ mini = 500
 class Predator(object):
 
     def __init__(self):
-        net.mutate()
+        self.net = Neuralnet()
+        self.net.mutate()
+        print(self.net.w3)
         self.position = Vector(300,300)
       #  self.position = Vector(rn.randint(0, 680),
       #                         rn.randint(0, 500))
@@ -75,9 +76,9 @@ class Predator(object):
             bird[i].chase = True
             diff = bird[i].position - self.position
             diff.normalize()
-            x = net.compute([kmin/500, diff[0], diff[1]])[0]
-            y = net.compute([kmin/500, diff[0], diff[1]])[1]
-#            print(kmin/500, diff[0], diff[1])
+            x = self.net.compute([kmin/500, diff[0], diff[1]])[0]
+            y = self.net.compute([kmin/500, diff[0], diff[1]])[1]
+            print(kmin/500, x, y)
             self.acceleration=Vector(x,y)
  #           print(self.acceleration)
             self.ismin(kmin)
