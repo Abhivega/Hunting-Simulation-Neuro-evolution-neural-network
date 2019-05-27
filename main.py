@@ -1,12 +1,19 @@
 from Hunted import Bird
+from neurlnet import Neuralnet
 from Hunter import Predator
 from p5 import *
+from copy import deepcopy
+import numpy as np
 global z
+global bird
+global pred
 z=0
 
-bird = [Bird() for i in range(4)]
-pred = [Predator() for i in range(2)]
+net = Neuralnet()
 
+
+bird = [Bird() for i in range(2)]
+pred = [Predator(net) for i in range(4)]
 
 def setup():
     size(1270, 680)
@@ -20,7 +27,25 @@ def alldead():
             print("preditor " + str(i) + " killed :", k.kill)
 
 
+def baby(pred):
+        a = []
+
+        for pre in pred:
+            a.append(pre.mini)
+        minim = min(a)
+        i = a.index(min(a))
+        one=deepcopy(pred[i])
+        net = deepcopy(pred[i].net)
+        print(i)
+        pred = [Predator(net) for i in range(4)]
+        pred.append(one)
+        return pred
+
+
+
 def draw():
+    global bird
+    global pred
     global z
     z+=1
     background(255) 
@@ -28,18 +53,16 @@ def draw():
     #    alldead()
         for bir in bird:
             bir.run(pred)
-        for prayy in pred:
-            prayy.run(bird)
-            prayy.movebitch(pred)
+        for pre in pred:
+            pre.run(bird)
+            pre.movebitch(pred)
     else:
         z=0
-        a=500
-        b=0
-        for i,prayy in enumerate(pred):
-            if prayy.min < a:
-                a=pray.kill
-                b=i
-    
+        bird = [Bird() for i in range(2)]
+        pred=baby(pred)
+
+
+
 
 
 

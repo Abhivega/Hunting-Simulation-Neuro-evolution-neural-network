@@ -1,14 +1,15 @@
 from p5 import *
 import random as rn
 from neurlnet import Neuralnet
+from copy import deepcopy
 
 
 
 
-class Predator(object):
+class Predator():
 
-    def __init__(self):
-        self.net = Neuralnet()
+    def __init__(self,netw):
+        self.net=deepcopy(netw) 
         self.net.mutate()
         self.mini = 500
         self.position = Vector(0,0)
