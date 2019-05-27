@@ -1,16 +1,21 @@
 from p5 import *
 import random as rn
+from neurlnet import Neuralnet
+net=Neuralnet()
+global mini
+mini = 500
 
 
 class Predator(object):
 
     def __init__(self):
-        # our object has two Vectors: location and velocity
-        self.position = Vector(rn.randint(0, 680),
-                               rn.randint(0, 500))
-
-        self.velocity = Vector(random_uniform(low=-2, high=2),
-                               random_uniform(low=-2, high=2))
+        net.mutate()
+        self.position = Vector(300,300)
+      #  self.position = Vector(rn.randint(0, 680),
+      #                         rn.randint(0, 500))
+        self.velocity = Vector(30, 30)
+      #  self.velocity = Vector(random_uniform(low=-2, high=2),
+      #                         random_uniform(low=-2, high=2))
         self.acceleration = Vector(0, 0)
         self.top_speed = 6
         self.kill = 0
@@ -64,19 +69,30 @@ class Predator(object):
             k.append(dist(self.position, bir.position))
         kmin = int(min(k))
         i = k.index(min(k))
-        if kmin < 300 and kmin > 15:
-            m = remap(kmin, (300, 15), (2, 10))
+        if kmin < 500 and kmin > 15:
+  #          m = remap(kmin, (300, 15), (2, 10))
+            
             bird[i].chase = True
             diff = bird[i].position - self.position
-            acceleration = diff + self.velocity
-            acceleration.normalize()
-            print(acceleration)
-            self.acceleration = acceleration * m
+            diff.normalize()
+            x = net.compute([kmin/500, diff[0], diff[1]])[0]
+            y = net.compute([kmin/500, diff[0], diff[1]])[1]
+#            print(kmin/500, diff[0], diff[1])
+            self.acceleration=Vector(x,y)
+ #           print(self.acceleration)
+            self.ismin(kmin)
 
         elif kmin < 15:
             bird.pop(i)
             self.headcount()
-#        return self.acceleration
+
+    def ismin(self,diff):
+        global mini
+        if diff < mini:
+            mini = diff
+
+
+
 
     def headcount(self):
         self.kill += 1
