@@ -1,8 +1,8 @@
 from p5 import *
 import random as rn
 from neurlnet import Neuralnet
-global mini
-mini = 500
+
+
 
 
 class Predator(object):
@@ -10,8 +10,8 @@ class Predator(object):
     def __init__(self):
         self.net = Neuralnet()
         self.net.mutate()
-        print(self.net.w3)
-        self.position = Vector(300,300)
+        self.mini = 500
+        self.position = Vector(0,0)
       #  self.position = Vector(rn.randint(0, 680),
       #                         rn.randint(0, 500))
         self.velocity = Vector(30, 30)
@@ -78,7 +78,7 @@ class Predator(object):
             diff.normalize()
             x = self.net.compute([kmin/500, diff[0], diff[1]])[0]
             y = self.net.compute([kmin/500, diff[0], diff[1]])[1]
-            print(kmin/500, x, y)
+        #    print(kmin/500, x, y)
             self.acceleration=Vector(x,y)
  #           print(self.acceleration)
             self.ismin(kmin)
@@ -88,9 +88,9 @@ class Predator(object):
             self.headcount()
 
     def ismin(self,diff):
-        global mini
-        if diff < mini:
-            mini = diff
+        if diff < self.mini:
+            self.mini = diff
+        return(self.mini)   
 
 
 
