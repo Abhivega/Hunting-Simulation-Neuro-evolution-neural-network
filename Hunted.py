@@ -5,12 +5,12 @@ import numpy as np
 
 class Bird():
     def __init__(self):
-        self.position = Vector(rn.randint(0, 1100),
-                               rn.randint(0, 550))
+        self.position = Vector(rn.randint(20, 1100),
+                               rn.randint(20, 550))
 
         self.velocity = Vector(0, 0)
         self.acceleration = Vector(0, 0)
-        self.top_speed = 10
+        self.top_speed = 8
         self.chase = False
 
     def show1(self):
@@ -53,9 +53,8 @@ class Bird():
     def flee(self, Pray):
         for pray in Pray:
             k = dist(self.position, pray.position)
-            if k < 100:
-                m = remap(k, (0, 100), (5, 25))
-
+            if k < 50:
+                m = remap(k, (0, 50), (2, 5))
                 diff = -(pray.position - self.position)
                 acceleration = diff + self.velocity
                 acceleration.normalize()
@@ -63,9 +62,9 @@ class Bird():
 
     def run(self, pray):
 
-#        self.flee(pray)
-#        self.checkobs()
-#        self.update()
+        self.flee(pray)
+        self.checkobs()
+        self.update()
         if self.chase:
             self.show1()
         else:

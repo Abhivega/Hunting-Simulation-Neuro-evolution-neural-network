@@ -1,8 +1,15 @@
-from neurlnet import Neuralnet
-net = Neuralnet()
-net2 = Neuralnet()
+global k
+k=0
 
-value = net.compute([0.994 ,- 0.98924685 ,- 0.14625543])
-value2 = net2.compute([0.994, - 0.98924685, - 0.14625543])
-print(value)
-print(value2)
+def hai():
+    global k
+    k=10
+
+
+def hai2():
+    global k
+    k = 20
+
+hai()
+hai2()
+print(k)
