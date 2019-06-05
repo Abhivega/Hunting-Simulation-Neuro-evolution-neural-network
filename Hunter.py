@@ -122,7 +122,7 @@ class Predator():
     def headcount(self):
         self.kill += 1
         self.boundy += self.kill / (self.tim + 1)
-#        self.tim = 0
+        self.tim = 0
     #    run = remap(self.kill, (0, 10), (8, 14))
     #    self.top_speed = run
         return (self.kill)

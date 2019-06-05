@@ -44,7 +44,9 @@ def key_pressed(event):
 def baby(pred):
     global saveme
     a = []
+    y=[]
     for pre in pred:
+        y.append(pre.kill)
         a.append(pre.rank())
     first = sorted(a)[0]
     second = sorted(a)[1]
