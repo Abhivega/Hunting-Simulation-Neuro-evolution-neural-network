@@ -76,10 +76,6 @@ class Predator():
             self.position = Vector(20, self.position.y)
             self.acceleration = Vector(0, 0)
 
-    def movebitch(self, ppray):
-        for pray in ppray:
-            run = remap(self.kill, (0, 10), (8, 14))
-            self.top_speed = run
 
     def hund(self, bird):
         k = []
