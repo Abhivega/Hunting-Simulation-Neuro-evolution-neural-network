@@ -2,7 +2,7 @@
 Simulation of a hunting using p5 and Python using boids. The original inspiration is to create a machine learning framework that enables predators to catch it’s pray. To start, I created a python script using p5 to create a hunting ground. Later on this can be used to obtain necessary data points for a deep learning / neuro evolution framework.
     Now the hunting is completely done using procedural learning with recombination and mutation of best fit. 
 
-##Changes
+## Changes
 
 *   Fully functioning recombination method.
     *   Selects the best two performing predators and their weights are recombined with a probability, more weightage is given to the best performer
